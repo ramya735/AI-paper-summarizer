@@ -1,0 +1,125 @@
+.file-upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 2rem;
+  min-height: 70vh;
+}
+
+.upload-zone {
+  width: 100%;
+  max-width: 600px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px dashed rgba(15, 23, 42, 0.15);
+  transition: all 0.3s ease;
+  padding: 3rem;
+  position: relative;
+}
+
+.upload-zone.dragging {
+  border-color: var(--accent-primary);
+  background: rgba(244, 63, 94, 0.03);
+  transform: scale(1.02);
+}
+
+.upload-zone.processing {
+  border-style: solid;
+  border-color: var(--accent-secondary);
+  animation: pulse-glow 3s infinite;
+}
+
+.upload-state, .processing-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.upload-icon-wrapper {
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.upload-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--accent-primary);
+}
+
+.upload-state h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.upload-state p {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-button {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: white;
+  padding: 0.85rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 1rem;
+}
+
+.upload-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.25);
+}
+
+.processing-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--accent-primary);
+}
+
+.spin {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background: rgba(15, 23, 42, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-tertiary), var(--accent-primary));
+  width: 0%;
+  animation: progress 3s ease-in-out forwards;
+}
+
+@keyframes progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
